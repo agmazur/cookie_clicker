@@ -6,7 +6,6 @@ with open("save64.txt", "r", encoding="utf-8") as file:
 url_decoded = urllib.parse.unquote(raw_string_save)
 base64_data = url_decoded.split('!END!')[0]
 decoded_bytes = base64.b64decode(base64_data)
-print(f"\033[31m{decoded_bytes}\033[0m")
 
 decoded_str = decoded_bytes.decode('latin1', errors='ignore')  # Use 'latin1' to keep binary structure
 print(f"\033[32m{decoded_str}\033[0m")
