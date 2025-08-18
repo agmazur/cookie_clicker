@@ -10,21 +10,21 @@ decoded_bytes = base64.b64decode(base64_data)
 decoded_str = decoded_bytes.decode('latin1', errors='ignore')  # Use 'latin1' to keep binary structure
 print(f"\033[32m{decoded_str}\033[0m")
 
-# Step 3: Split by '|'
-parts = decoded_str.split('|')
+# # Step 3: Split by '|'
+# parts = decoded_str.split('|')
 
-# Display first parts
-for i, part in enumerate(parts[:20]):
-    print(f"Part {i}: {part}")
+# # Display first parts
+# for i, part in enumerate(parts[:20]):
+#     print(f"Part {i}: {part}")
 
-part5=parts[5].split(";")
-print(f"\033[35m{part5}\033[0m")
-farm_type_data=[]
-for i, farm_type_info_block in enumerate(part5):
-    farm_type_data.append([])
-    print(farm_type_info_block)
-    for intiger in farm_type_info_block:
-        farm_type_data[i].append(intiger)
-        print(intiger)
-print(farm_type_data)
-# somecoment main
+# part5=parts[5].split(";")
+# print(f"\033[35m{part5}\033[0m")
+# farm_type_data=[]
+# for i, farm_type_info_block in enumerate(part5):
+#     farm_type_data.append([])
+#     print(farm_type_info_block)
+#     for intiger in farm_type_info_block:
+#         farm_type_data[i].append(intiger)
+#         print(intiger)
+# print(farm_type_data)
+# # somecoment main
