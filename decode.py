@@ -12,19 +12,19 @@ print(f"\033[32m{decoded_str}\033[0m")
 
 # Step 3: Split by '|'
 parts = decoded_str.split('|')
+game_version_data,_,general_info_data,unlocked_upgrades,bank_stats,building_data,Upgrades,achivements,_,*rest=parts
+print(bank_stats)
+current_cookie_balance=bank_stats.split(";")[0]
+print(building_data)
 
-# Display first parts
-for i, part in enumerate(parts[:20]):
-    print(f"Part {i}: {part}")
-
-part5=parts[5].split(";")
-print(f"\033[35m{part5}\033[0m")
-farm_type_data=[]
-for i, farm_type_info_block in enumerate(part5):
-    farm_type_data.append([])
-    print(farm_type_info_block)
-    for intiger in farm_type_info_block:
-        farm_type_data[i].append(intiger)
-        print(intiger)
-print(farm_type_data)
-# somecoment main
+# part5=parts[5].split(";")
+# print(f"\033[35m{part5}\033[0m")
+# farm_type_data=[]
+# for i, farm_type_info_block in enumerate(part5):
+#     farm_type_data.append([])
+#     print(farm_type_info_block)
+#     for intiger in farm_type_info_block:
+#         farm_type_data[i].append(intiger)
+#         print(intiger)
+# print(farm_type_data)
+# # somecoment main
