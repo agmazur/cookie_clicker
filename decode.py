@@ -10,12 +10,12 @@ decoded_bytes = base64.b64decode(base64_data)
 decoded_str = decoded_bytes.decode('latin1', errors='ignore')  # Use 'latin1' to keep binary structure
 print(f"\033[32m{decoded_str}\033[0m")
 
-# # Step 3: Split by '|'
-# parts = decoded_str.split('|')
-
-# # Display first parts
-# for i, part in enumerate(parts[:20]):
-#     print(f"Part {i}: {part}")
+# Step 3: Split by '|'
+parts = decoded_str.split('|')
+game_version_data,_,general_info_data,unlocked_upgrades,bank_stats,building_data,Upgrades,achivements,_,*rest=parts
+print(bank_stats)
+current_cookie_balance=bank_stats.split(";")[0]
+print(building_data)
 
 # part5=parts[5].split(";")
 # print(f"\033[35m{part5}\033[0m")
