@@ -4,6 +4,7 @@ from selenium.webdriver.chrome.service import Service
 from selenium.webdriver.chrome.options import Options
 from selenium.webdriver.support import expected_conditions as EC
 from selenium.webdriver.common.by import By
+from selenium.webdriver.common.action_chains import ActionChains
 import time
 
 chromedriver_path = r"C:\Dev\cookie_clicker\chromedriver\chromedriver.exe"
@@ -38,5 +39,15 @@ try:
     print("Consent clicked!")
 except Exception as e:
     print("Consent button not found or clickable:", e)
+time.sleep(1)
+lang_button = driver.find_element(By.ID, "langSelect-EN")
+actions = ActionChains(driver)
+time.sleep(1)  
+actions.move_to_element(lang_button).perform()
+time.sleep(1)
+english_button = WebDriverWait(driver, 10).until(
+    EC.element_to_be_clickable((By.ID, "langSelect-EN"))
+)
+english_button.click()
+_=input("Press Enter to continue after language selection...")
 time.sleep(100)
-print(driver.title)
