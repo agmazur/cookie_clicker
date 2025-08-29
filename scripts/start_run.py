@@ -42,9 +42,9 @@ def start_run():
     time.sleep(1)
     lang_button = driver.find_element(By.ID, "langSelect-EN")
     actions = ActionChains(driver)
-    time.sleep(1)  
+    time.sleep(0.3)  
     actions.move_to_element(lang_button).perform()
-    time.sleep(1)
+    time.sleep(0.3)
     english_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.ID, "langSelect-EN"))
     )

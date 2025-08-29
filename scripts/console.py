@@ -1,3 +1,4 @@
+import time
 def boot_console(driver):
     while True:
         command = input("Enter command (type 'exit' to quit): ")
@@ -12,12 +13,17 @@ def boot_console(driver):
             continue
         elif command == 'save_lockal_overwrite':
             from save_lockal import save_lockal_overwrite
-            new_save_string = driver.execute_script("return Game.ExportSaveCode();")
+            new_save_string = driver.execute_script("return Game.WriteSave(1);")
             save_lockal_overwrite(new_save_string)
             print("Save file overwritten.")
             continue
         elif command == 'hello_world':
             print("Hello, World!")
+            continue
+        elif command == "get_game":
+            time.sleep(0.5)
+            game_state = driver.execute_script("return Game;")
+            print(game_state)
             continue
 
         try:
