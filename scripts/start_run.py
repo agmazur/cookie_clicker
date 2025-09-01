@@ -48,5 +48,7 @@ def start_run():
     )
     english_button.click()
     print("English selected!")
+    time.sleep(10)  # Wait for the page to load after selecting language
     return driver
+
 
