@@ -1,5 +1,6 @@
 import time
-def boot_console(driver):
+def boot_console(driver,stop_event):
+    global running
     while True:
         command = input("Enter command (type 'exit' to quit): ")
         command = command.lower()
@@ -20,10 +21,18 @@ def boot_console(driver):
         elif command == 'hello_world':
             print("Hello, World!")
             continue
-        elif command == "get_game":
-            time.sleep(0.5)
-            game_state = driver.execute_script("return Game;")
-            print(game_state)
+        elif command == "click_cookie":
+            driver.execute_script("Game.ClickCookie();")
+            print(f"\033[31mclicked\033[0m")
+        elif command == "click_cookie_100":
+            for _ in range(100):
+                driver.execute_script("Game.ClickCookie();")            
+            
+        elif command.strip().lower() == "exit":
+            print("Stopping maintenance...")
+            stop_event.set()   # ✅ this tells maintain() to stop
+            break
+            
             continue
 
         try:

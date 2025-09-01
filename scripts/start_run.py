@@ -42,13 +42,12 @@ def start_run():
     time.sleep(1)
     lang_button = driver.find_element(By.ID, "langSelect-EN")
     actions = ActionChains(driver)
-    time.sleep(0.3)  
     actions.move_to_element(lang_button).perform()
-    time.sleep(0.3)
     english_button = WebDriverWait(driver, 10).until(
         EC.element_to_be_clickable((By.ID, "langSelect-EN"))
     )
     english_button.click()
     driver.execute_script("console.log('Hello from Selenium!')")
+    time.sleep(1)  # wait for 5 seconds to ensure the game loads
     return driver
 
