@@ -13,3 +13,5 @@ def save_lockal_overwrite(driver):
     from save_lockal import save_lockal_overwrite
     new_save_string = driver.execute_script("return Game.WriteSave(1);")
     save_lockal_overwrite(new_save_string)
+def buy_structure(driver):
+    driver.execute_script("Game.Objects['Cursor'].buy();")

@@ -1,5 +1,5 @@
 import time
-from js_interaction_functions import click_cookie, click_cookie_100,save_lockal_load,save_lockal_overwrite
+from js_interaction_functions import click_cookie, click_cookie_100,save_lockal_load,save_lockal_overwrite,buy_structure
 
 def boot_console(driver,stop_event):
     while True:
@@ -25,6 +25,12 @@ def boot_console(driver,stop_event):
             print("Stopping maintenance...")
             stop_event.set()   # ✅ this tells maintain() to stop
             break
+        elif command == 'buy_structure':
+            buy_structure(driver)
+            print("Structure purchased.")
+           
+            # Add your buy_structure logic here
+            continue
         try:
             exec(command)
         except Exception as e:
