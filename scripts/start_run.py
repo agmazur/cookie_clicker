@@ -47,7 +47,6 @@ def start_run():
         EC.element_to_be_clickable((By.ID, "langSelect-EN"))
     )
     english_button.click()
-    driver.execute_script("console.log('Hello from Selenium!')")
-    time.sleep(1)  # wait for 5 seconds to ensure the game loads
+    print("English selected!")
     return driver
 
